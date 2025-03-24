@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hotstar</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            width: 1400px;
+        }
+
+        .tcard {
+            display: flex;
+            background-color: rgb(25, 25, 25);
+            margin-left: 11vw;
+            border-radius: 7px;
+        }
+
+        .tcard img {
+            border-radius: 7px 0 0 7px;
+        }
+
+        .rbox {
+            position: relative;
+            left: 50px;
+            top: 50px;
+            display: flex;
+        }
+
+        .rbox img {
+            position: relative;
+            right: 5px;
+            width: 50px;
+            height: 50px;
+        }
+
+        p {
+            color: white;
+        }
+
+        .trailer {
+
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background: transparent;
+            margin-left: 11vw;
+            float: left;
+        }
+
+        .trailer video {
+            z-index: -1;
+        }
+
+        .multi-card {
+            position: sticky;
+            left: 10px;
+            z-index: 3;
+            bottom: 400px;
+            margin-left: 11vw;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            overflow: scroll;
+            background: transparent;
+            scrollbar-width: none;
+            overflow: auto;
+            scrollbar-width: none;
+            box-shadow: 0 0 250px;
+            background-color: black;
+            z-index: 10;
+
+        }
+
+        .cards2 {
+            display: flex;
+            gap: 20px;
+            overflow: scroll;
+            background: transparent;
+            scrollbar-width: none;
+            /* margin-bottom: 20px; */
+            background-color: black;
+            z-index: 10;
+        }
+
+        /* span {
+            color: gray;
+            background-color: yellow;
+        } */
+
+        .production {
+            display: flex;
+            gap: 30px;
+            /* margin-bottom: 20px; */
+            background-color: black;
+            z-index: 10;
+            overflow: scroll;
+        }
+
+        .Languages {
+            display: flex;
+            overflow: auto;
+            gap: 20px;
+            scrollbar-width: none;
+            background-color: black;
+            z-index: 10;
+        }
+
+        li {
+            color: white;
+            list-style: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        ul {
+            position: absolute;
+            top: 250px;
+            line-height: 50px;
+
+            width: 200px;
+            z-index: 30;
+        }
+        ul .icname {
+                opacity: 0;
+            }
+
+        .logo {
+            position: absolute;
+            left: 30px;
+            margin: 0 auto;
+            top: 35px;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100px;
+            z-index: 10;
+        }
+        .navbar:hover{
+            transition: 0.9s all ease;
+        }
+
+        /* .srl{
+            scrollbar-width: none;
+            border: none;
+        } */
+        .sub {
+            width: 200px;
+            height: 30px;
+            background-color: gray;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .sub:hover {
+            scale: 1.09;
+            transition: 0.5 all ease;
+        }
+
+        .sub1 {
+            width: 50px;
+            height: 30px;
+            background-color: gray;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        .sub1:hover{
+            scale: 1.09;
+            transition: 0.5 all ease;
+        }
+
+
+        .pr {
+            color: white;
+            /* margin: 10px; */
+            background-color: black;
+            z-index: 10;
+            height: 50px;
+            display: flex;
+            align-items: end;
+        }
+
+        .pl {
+            color: white;
+            /* margin: 10px; */
+            background-color: black;
+            z-index: 10;
+            height: 50px;
+            display: flex;
+            align-items: end;
+        }
+
+        .lr{
+            background-color: black;
+        }
+
+        .hs {
+            color: white;
+            /* margin: 10px; */
+            background-color: black;
+            z-index: 10;
+            height: 50px;
+            display: flex;
+            align-items: end;
+        }
+
+        .lr {
+            color: white;
+        }
+
+        i:hover {
+            scale: 1.09;
+            transition: 0.6 all ease;
+        }
+
+
+
+        .cards::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, and newer Edge */
+        }
+
+        .cards2::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, and newer Edge */
+        }
+
+        .production::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, and newer Edge */
+        }
+
+        .Languages::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, and newer Edge */
+        }
+
+        .box {
+            box-shadow: 10px 10px 10px;
+        }
+        
+        ul:hover .icname {
+            opacity: 1;
+        }
+        .icname {
+            margin-left: 13px;
+            transition: 0.5 all ease;
+        }   
+        .multi-card{
+            position: sticky;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="logo" src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg" alt="">
+        <ul>
+            <li>
+                <div class="icon-container"><i class="fa-solid fa-user"></i><span class="icname">Profile</span></div>
+            </li>
+            <li>
+                <div class="icon-container"><i class="fa-solid fa-magnifying-glass"></i><span
+                        class="icname">Search</span></div>
+            </li>
+            <li>
+                <div class="icon-container"><i class="fa-solid fa-house"></i><span class="icname">Home</span></div>
+            </li>
+            <li>
+                <div class="icon-container"><i class="fa-solid fa-tv"></i><span class="icname">T.V</span></div>
+            </li>
+            <li>
+                <div class="icon-container"><i class="fa-solid fa-radio"></i><span class="icname">Radio</span></div>
+            </li>
+            <li>
+                <div class="icon-container"><i class="fa-solid fa-baseball"></i><span class="icname">Sports</span></div>
+            </li>
+            <li>
+                <div class="icon-container"><i class="fa-solid fa-table-cells-large"></i><span
+                        class="icname">Catogories</span></div>
+            </li>
+        </ul>
+    </nav>
+    <div class="tcard">
+        <div class="ad">
+            <img src="ad.png" width="652" height="250px">
+        </div>
+        <div class="rbox">
+            <img src="ad_logo.png" alt="" width="400px">
+            <p><span>Ad</span> The ultimate travel hack</p>
+            <!-- <p>Travel</p> -->
+        </div>
+    </div>
+    <div class="trailer">
+        <video autoplay muted
+            src="Hotstar Specials_ Thukra Ke Mera Pyaar | Official Trailer | sanchitabashuofficial. | Nov 22 - DisneyPlus Hotstar (1080p, h264, youtube).mp4"
+            width="1240">
+        </video>
+    </div>
+    <div class="multi-card">
+        <img src="tkp.png" alt="" width="120">
+        <p>New Release</p>
+        <p>2024 . 1Season . 2 Languages</p><br><br>
+        <p>Two families clash over societal and caste differences,</p>
+        <p>spurging a saga of revenge. All this happens when a</p>
+        <p>love story goes wrong.</p><br><br>
+        <p>Drama | Betrayal | Revenge | Comman-Man Struggles</p><br><br>
+        <button class="sub">Subscribe to watch</button>
+        <button class="sub1">+</button><br><br>
+
+
+        <div class="des">
+            <h2 class="lr">Latest Releases</h2>
+            <div class="cards">
+                <div class="box1 box">
+                    <img src="christmas.png" alt="" width="180" height="200">
+                </div>
+                <div class="box2 box">
+                    <img src="tsunami.png" alt="" width="180" height="200">
+                </div>
+                <div class="box3 box">
+                    <img src="arm.png" alt="" width="180" height="200">
+                </div>
+                <div class="box4 box">
+                    <img src="tkmp.png" alt="" width="180" height="200">
+                </div>
+                <div class="box5 box">
+                    <img src="ar.png" alt="" width="180" height="200">
+                </div>
+                <div class="box6 box">
+                    <img src="kk.png" alt="" width="180" height="200">
+                </div>
+                <div class="box7 box">
+                    <img src="dw.png" alt="" width="180" height="200">
+                </div>
+                <div class="box8 box">
+                    <img src="parachute.png" alt="" width="180" height="200">
+                </div>
+                <div class="box9 box">
+                    <img src="hanuman.png" alt="" width="180" height="200">
+                </div>
+                <div class="box10 box">
+                    <img src="amaran.png" alt="" width="180" height="200">
+                </div>
+                <div class="box11 box">
+                    <img src="hb.png" alt="" width="180" height="200">
+                </div>
+                <div class="box12 box">
+                    <img src="64.png" alt="" width="180" height="200">
+                </div>
+                <div class="box12 box">
+                    <img src="outofmind.png" alt="" width="180" height="200">
+                </div>
+                <div class="box14 box">
+                    <img src="skeletoncrew.png" alt="" width="180" height="200">
+                </div>
+            </div>
+
+
+            <h2 class="hs">Hotstar Specials</h2>
+            <div class="cards2">
+                <div class="box15">
+                    <img src="parachute.png" alt="" width="180" height="200">
+                </div>
+                <div class="box16">
+                    <img src="moana.png" alt="" width="180" height="200">
+                </div>
+                <div class="box17">
+                    <img src="lionking.png" alt="" width="180" height="200">
+                </div>
+                <div class="box18">
+                    <img src="alladin.png" alt="" width="180" height="200">
+                </div>
+                <div class="box19">
+                    <img src="frozen.png" alt="" width="180" height="200">
+                </div>
+                <div class="box20">
+                    <img src="tangled.png" alt="" width="180" height="200">
+                </div>
+                <div class="box21">
+                    <img src="jungle.png" alt="" width="180" height="200">
+                </div>
+                <div class="box22">
+                    <img src="beauty.png" alt="" width="180" height="200">
+                </div>
+                <div class="box23">
+                    <img src="pirates.png" alt="" width="180" height="200">
+                </div>
+                <div class="box24">
+                    <img src="apes.png" alt="" width="180" height="200">
+                </div>
+                <div class="box25">
+                    <img src="crack.png" alt="" width="180" height="200">
+                </div>
+                <div class="box26">
+                    <img src="arm.png" width="180" height="200">
+                </div>
+                <div class="box27">
+                    <img src="tsunami.png" alt="" width="180" height="200">
+                </div>
+                <div class="box28">
+                    <img src="christmas.png" alt="" width="180" height="200">
+                </div>
+            </div>
+            <h2 class="pr">Production</h2>
+            <div class="production">
+                <div class="pro1">
+                    <video src="https://img10.hotstar.com/video/upload/sources/r1/cms/animations/qh3yh_1587393133132"
+                        width="200" height=""></video>
+                </div>
+                <div class="pro1">
+                    <video src="https://img10.hotstar.com/video/upload/sources/r1/cms/animations/1on5cf_1587393232549"
+                        width="200" height=""></video>
+                </div>
+                <div class="pro1">
+                    <video src="https://img10.hotstar.com/video/upload/sources/r1/cms/animations/a6lr0r_1587393331483"
+                        width="200" height=""></video>
+                </div>
+                <div class="pro1">
+                    <video src="https://img10.hotstar.com/video/upload/sources/r1/cms/animations/utwmfd_1587393376512"
+                        width="200" height=""></video>
+                </div>
+                <div class="pro1">
+                    <video src="https://img10.hotstar.com/video/upload/sources/r1/cms/animations/ojerhm_1587393280208"
+                        width="200" height=""></video>
+                </div>
+                <div class="pro1">
+                    <video src="https://img10.hotstar.com/video/upload/sources/r1/cms/animations/qc9clm_1669284974594"
+                        width="200" height=""></video>
+                </div>
+
+            </div>
+            <h2 class="pl">Popular Languages </h2>
+            <div class="Languages srl">
+                <div class="l1">
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/6661/1526661-a-00b818b5bc0e"
+                        alt="" width="240">
+                </div>
+                <div class="l2">
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/6660/1526660-a-afdd1ecfd8ae"
+                        alt="" width="240">
+                </div>
+                <div class="l3">
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/6682/1526682-a-fd4e220ba563"
+                        alt="" width="240">
+                </div>
+                <div class="l4">
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/6685/1526685-a-5f5995a53f61"
+                        alt="" width="240">
+                </div>
+                <div class="l5">
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/6672/1526672-a-eafe6913c6c8"
+                        alt="" width="240">
+                </div>
+                <div class="l6">
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/6659/1526659-a-7271cf19114e"
+                        alt="" width="240">
+                </div>
+                <div class="l7">
+                    <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/6674/1526674-a-fdd5233a7699"
+                        alt="" width="240">
+                </div>
+            </div>   
+        </div>
+    </div>
+</body>
+
+</html>
